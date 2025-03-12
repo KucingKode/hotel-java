@@ -1,7 +1,9 @@
 import java.time.Instant;
 
 enum StatusReservasi {
-
+    belumDibayar,
+    sudahDibayar,
+    dibatalkan
 }
 
 public class Reservasi implements DapatDibayar {
@@ -9,20 +11,24 @@ public class Reservasi implements DapatDibayar {
     private Pelanggan[] daftarPelanggan;
     private int jumlahMalam;
     private Instant tanggalMasuk;
+    private StatusReservasi status;
 
     public Reservasi(Kamar kamar, Pelanggan[] daftarPelanggan, int jumlahMalam, Instant tanggalMasuk) {
         this.kamar = kamar;
         this.daftarPelanggan = daftarPelanggan;
         this.jumlahMalam = jumlahMalam;
         this.tanggalMasuk = tanggalMasuk;
+        status = StatusReservasi.belumDibayar;
     }
 
     public void bayar() {
         this.kamar.pesan();
+        this.setStatus(StatusReservasi.sudahDibayar);
     }
 
     public void batalkan() {
         this.kamar.batalkanPesanan();
+        this.setStatus(StatusReservasi.dibatalkan);
     }
 
     public double getTotal() {
@@ -61,6 +67,14 @@ public class Reservasi implements DapatDibayar {
         this.tanggalMasuk = tanggalMasuk;
     }
 
+    public StatusReservasi getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(StatusReservasi status) {
+        this.status = status;
+    }
+
     public void tampilkanInfo() {
         System.out.println("-- kamar: --");
         this.kamar.tampilkanInfo();
@@ -70,11 +84,9 @@ public class Reservasi implements DapatDibayar {
             pelanggan.tampilkanInfo();
         }
         System.out.println("-----");
-
-        System.out.println("jumlah malam: " + this.getJumlahMalam());
         System.out.println("tanggal masuk: " + this.getTanggalMasuk());
-
-        
-
+        System.out.println("jumlah malam: " + this.getJumlahMalam());
+        System.out.println("status: " + this.getStatus());
+        System.out.println("total: " + this.getTotal());
     }
 }

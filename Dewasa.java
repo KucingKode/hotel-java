@@ -9,9 +9,8 @@ public class Dewasa extends Pelanggan {
         return new Reservasi(kamar, listPelanggan, jumlahMalam, tanggalCheckIn);
     }
 
-    public void tampilkanInfo (){
-        System.out.println("nama: " + this.getNama() );
-        System.out.println("nik: " + this.getNik() );
-
+    public void tampilkanInfo() {
+        System.out.println("nama: " + this.getNama());
+        System.out.println("nik: " + this.getNik());
     }
 }

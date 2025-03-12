@@ -13,11 +13,10 @@ public class Anak extends Pelanggan {
     public void setOrangTua(Dewasa orangTua) {
         this.orangTua = orangTua;
     }
+
     public void tampilkanInfo() {
         System.out.println("nam: " + this.getNama());
         System.out.println("nik: " + this.getNik());
-        System.out.println("-- orang tua: --");
-        orangTua.tampilkanInfo();
-        System.out.println("-----");
+        System.out.println("orang tua: " + this.orangTua.getNama() + " (" + this.orangTua.getNik() + ")");
     }
 }

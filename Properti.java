@@ -75,7 +75,6 @@ public class Properti implements DapatDidepresiasi {
         System.out.println("harga beli: " + this.getHargaBeli());
         System.out.println("nilai residu: " + this.getNilaiResidu());
         System.out.println("masa manfaat: " + this.getMasaManfaat());
-        System.out.println("---");
         System.out.println("beban penyusutan: " + this.getBebanPenyusutan());
         System.out.println("akumulasi penyusutan: " + this.getAkumulasiPenyusutan());
         System.out.println("nilai buku: " + this.getNilaiBuku());

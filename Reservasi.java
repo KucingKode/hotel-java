@@ -64,5 +64,17 @@ public class Reservasi implements DapatDibayar {
     public void tampilkanInfo() {
         System.out.println("-- kamar: --");
         this.kamar.tampilkanInfo();
+        System.out.println("-----");
+        System.out.println("-- daftar pelanggan: --");
+        for (Pelanggan pelanggan : daftarPelanggan) {
+            pelanggan.tampilkanInfo();
+        }
+        System.out.println("-----");
+
+        System.out.println("jumlah malam: " + this.getJumlahMalam());
+        System.out.println("tanggal masuk: " + this.getTanggalMasuk());
+
+        
+
     }
 }

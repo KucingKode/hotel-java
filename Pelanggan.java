@@ -23,8 +23,5 @@ public abstract class Pelanggan {
         this.nik = nik;
     }
 
-    public void tampilkanInfo() {
-        System.out.println("nam: " + this.getNama());
-        System.out.println("nik: " + this.getNik());
-    }
+    public abstract void tampilkanInfo();
 }

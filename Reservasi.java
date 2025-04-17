@@ -1,9 +1,9 @@
 import java.time.Instant;
 
 enum StatusReservasi {
-    belumDibayar,
-    sudahDibayar,
-    dibatalkan
+    BELUM_DIBAYAR,
+    SUDAH_DIBAYAR,
+    DIBATALKAN
 }
 
 public class Reservasi implements DapatDibayar {
@@ -18,21 +18,21 @@ public class Reservasi implements DapatDibayar {
         this.daftarPelanggan = daftarPelanggan;
         this.jumlahMalam = jumlahMalam;
         this.tanggalMasuk = tanggalMasuk;
-        status = StatusReservasi.belumDibayar;
+        status = StatusReservasi.BELUM_DIBAYAR;
     }
 
     public void bayar() {
         this.kamar.pesan();
-        this.setStatus(StatusReservasi.sudahDibayar);
+        this.setStatus(StatusReservasi.SUDAH_DIBAYAR);
     }
 
     public void batalkan() {
         this.kamar.batalkanPesanan();
-        this.setStatus(StatusReservasi.dibatalkan);
+        this.setStatus(StatusReservasi.DIBATALKAN);
     }
 
     public double getTotal() {
-        return this.daftarPelanggan.length * this.kamar.getHargaPerMalam();
+        return this.jumlahMalam * this.daftarPelanggan.length * this.kamar.getHargaPerMalam();
     }
 
     public Kamar getKamar() {

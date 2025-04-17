@@ -1,6 +1,6 @@
 enum StatusKamar {
-    dipesan,
-    kosong
+    DIPESAN,
+    KOSONG
 }
 
 class Kamar implements DapatDipesan {
@@ -15,11 +15,11 @@ class Kamar implements DapatDipesan {
     }
 
     public void pesan() {
-        this.status = StatusKamar.dipesan;
+        this.status = StatusKamar.DIPESAN;
     }
 
     public void batalkanPesanan() {
-        this.status = StatusKamar.kosong;
+        this.status = StatusKamar.KOSONG;
     }
 
     public String getId() {
